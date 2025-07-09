@@ -7,11 +7,11 @@ import edu.thanglong.domain.model.nganhang.ruttien.GiaoDich;
 import edu.thanglong.domain.repository.nganhang.ruttien.GiaoDichRepository;
 
 @Repository
-public class JdbcGiaoDichRepository implements GiaoDichRepository {
+public class JdbcGiaoDichRutTienRepository implements GiaoDichRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public JdbcGiaoDichRepository(JdbcTemplate jdbcTemplate) {
+    public JdbcGiaoDichRutTienRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
