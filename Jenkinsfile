@@ -14,7 +14,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo "Cloning source code..."
+                echo "Cloning source code.."
                 checkout scm
             }
         }
