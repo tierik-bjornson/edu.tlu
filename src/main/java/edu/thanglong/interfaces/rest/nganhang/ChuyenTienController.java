@@ -1,4 +1,4 @@
-package edu.thanglong.interfaces.web;
+package edu.thanglong.interfaces.rest.nganhang;
 
 
 import lombok.Data;
@@ -6,9 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import edu.thanglong.domain.model.ChuyenTien;
-import edu.thanglong.domain.model.TransferResponse;
-import edu.thanglong.domain.usecase.ChuyenTienUseCase;
+import edu.thanglong.domain.model.nganhang.ChuyenTien;
+import edu.thanglong.domain.model.nganhang.TransferResponse;
+import edu.thanglong.domain.usecase.nganhang.ChuyenTienUseCase;
 
 import java.math.BigDecimal;
 
