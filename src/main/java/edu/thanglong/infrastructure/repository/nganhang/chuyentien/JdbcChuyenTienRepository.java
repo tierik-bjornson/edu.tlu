@@ -1,13 +1,13 @@
-package edu.thanglong.infrastructure.repository.nganhang;
+package edu.thanglong.infrastructure.repository.nganhang.chuyentien;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import edu.thanglong.domain.model.nganhang.GiaoDich;
-import edu.thanglong.domain.model.nganhang.TaiKhoan;
-import edu.thanglong.domain.repository.nganhang.ChuyenTienRepository;
+import edu.thanglong.domain.model.nganhang.chuyentien.GiaoDich;
+import edu.thanglong.domain.model.nganhang.chuyentien.TaiKhoan;
+import edu.thanglong.domain.repository.nganhang.chuyentien.ChuyenTienRepository;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

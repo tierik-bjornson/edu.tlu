@@ -1,4 +1,4 @@
-package edu.thanglong.domain.model.nganhang;
+package edu.thanglong.domain.model.nganhang.chuyentien;
 
 import java.math.BigDecimal;
 

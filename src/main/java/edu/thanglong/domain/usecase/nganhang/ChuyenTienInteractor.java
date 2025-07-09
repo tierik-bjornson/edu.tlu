@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.thanglong.domain.model.nganhang.GiaoDich;
-import edu.thanglong.domain.model.nganhang.TaiKhoan;
-import edu.thanglong.domain.repository.nganhang.ChuyenTienRepository;
+import edu.thanglong.domain.model.nganhang.chuyentien.GiaoDich;
+import edu.thanglong.domain.model.nganhang.chuyentien.TaiKhoan;
+import edu.thanglong.domain.repository.nganhang.chuyentien.ChuyenTienRepository;
 
 import java.math.BigDecimal;
 import java.util.Optional;

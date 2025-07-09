@@ -1,9 +1,9 @@
-package edu.thanglong.domain.repository.nganhang;
+package edu.thanglong.domain.repository.nganhang.chuyentien;
 
 import java.util.Optional;
 
-import edu.thanglong.domain.model.nganhang.GiaoDich;
-import edu.thanglong.domain.model.nganhang.TaiKhoan;
+import edu.thanglong.domain.model.nganhang.chuyentien.GiaoDich;
+import edu.thanglong.domain.model.nganhang.chuyentien.TaiKhoan;
 
 public interface ChuyenTienRepository {
     Optional<TaiKhoan> findById(Long maTaiKhoan);
