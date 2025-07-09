@@ -16,7 +16,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo "📥 Cloning source code..."
+                echo "Cloning source code..."
                 checkout scm
             }
         }
@@ -30,7 +30,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo "✅ Running unit tests..."
+                echo "Running unit tests..."
                 sh 'mvn test'
             }
         }
