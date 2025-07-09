@@ -2,84 +2,93 @@ pipeline {
     agent any
 
     tools {
-        maven 'maven'   
-        jdk 'JDK'      
+        maven 'maven'
+        jdk 'JDK'
     }
 
     environment {
         JAR_NAME = "edu.tlu-0.0.1-SNAPSHOT.jar"
+        PID_FILE = "app.pid"
+        LOG_FILE = "app.log"
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                echo "Cloning source code.."
+                echo "📥 Cloning source code..."
                 checkout scm
             }
         }
 
         stage('Build') {
             steps {
-                echo "Running Maven Clean Package.."
+                echo "⚙️ Running Maven clean package..."
                 sh 'mvn clean package'
             }
         }
 
         stage('Test') {
             steps {
-                echo "Running Maven Tests..."
+                echo "✅ Running unit tests..."
                 sh 'mvn test'
             }
         }
 
         stage('Archive Artifact') {
             steps {
-                echo "Archiving built .jar..."
+                echo "🗄️ Archiving built JAR..."
                 archiveArtifacts artifacts: "target/${JAR_NAME}", fingerprint: true
             }
         }
 
         stage('Stop Previous App') {
             steps {
-                echo "Killing any old app process..."
+                echo "🛑 Stopping previous app if running..."
                 sh '''
-                PID=$(ps -ef | grep "${JAR_NAME}" | grep -v grep | awk '{print $2}')
-                if [ ! -z "$PID" ]; then
-                    echo "Found running app with PID: $PID. Killing it..."
-                    kill -9 $PID
-                else
-                    echo "No running app found."
-                fi
+                    if [ -f ${PID_FILE} ]; then
+                        PID=$(cat ${PID_FILE})
+                        if ps -p $PID > /dev/null; then
+                            echo "Found running app with PID: $PID. Killing..."
+                            kill -9 $PID
+                            echo "Killed."
+                        else
+                            echo "No process found with PID $PID. Removing stale PID file."
+                        fi
+                        rm -f ${PID_FILE}
+                    else
+                        echo "No PID file found."
+                    fi
                 '''
             }
         }
 
         stage('Run App') {
             steps {
-                echo "Running built .jar in background..."
+                echo "🚀 Running new JAR in background with nohup..."
                 sh '''
-                nohup java -jar target/${JAR_NAME} > app.log 2>&1 &
-                sleep 5
-                echo "App should be running now."
+                    nohup java -jar target/${JAR_NAME} > ${LOG_FILE} 2>&1 &
+                    echo $! > ${PID_FILE}
+                    sleep 5
+                    echo "Started with PID $(cat ${PID_FILE})"
                 '''
             }
         }
 
         stage('Check App Log') {
             steps {
-                echo "Tailing app.log to see Spring Boot start..."
-                sh 'tail -n 20 app.log'
+                echo "🔍 Showing last 20 lines of log..."
+                sh 'tail -n 20 ${LOG_FILE}'
             }
         }
     }
 
     post {
         always {
-            echo "Pipeline finished. App should be running if no errors."
+            echo "✅ Pipeline completed."
         }
         failure {
-            echo "Pipeline failed."
+            echo "❌ Pipeline failed."
         }
     }
 }
