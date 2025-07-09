@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import edu.thanglong.domain.model.ChuyenTien;
+import edu.thanglong.domain.model.TransferResponse;
 import edu.thanglong.domain.usecase.ChuyenTienUseCase;
 
 import java.math.BigDecimal;
@@ -17,16 +19,10 @@ public class ChuyenTienController {
     private final ChuyenTienUseCase chuyenTien;
 
     @PostMapping
-    public ResponseEntity<Void> transfer(@RequestBody TransferRequest request) {
-        chuyenTien.execute(request.getFrom(), request.getTo(), request.getAmount());
-        return ResponseEntity.ok().build();
-    }
-
-    @Data
-    public static class TransferRequest {
-        private Long from;
-        private Long to;
-        private BigDecimal amount;
+    public ResponseEntity<TransferResponse> transfer(@RequestBody ChuyenTien request) {
+        String resp = chuyenTien.execute(request.getFrom(), request.getTo(), request.getAmount());
+        TransferResponse response = new TransferResponse(resp);
+        return ResponseEntity.ok(response);
     }
 }
 
