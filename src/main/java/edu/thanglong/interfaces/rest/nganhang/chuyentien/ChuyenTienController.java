@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import edu.thanglong.domain.model.nganhang.chuyentien.ChuyenTien;
 import edu.thanglong.domain.model.nganhang.chuyentien.TransferResponse;
-import edu.thanglong.domain.usecase.nganhang.ChuyenTienUseCase;
+import edu.thanglong.domain.usecase.nganhang.chuyentien.ChuyenTienUseCase;
 
 import java.math.BigDecimal;
 

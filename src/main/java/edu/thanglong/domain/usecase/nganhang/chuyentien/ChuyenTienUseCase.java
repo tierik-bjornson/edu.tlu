@@ -1,4 +1,4 @@
-package edu.thanglong.domain.usecase.nganhang;
+package edu.thanglong.domain.usecase.nganhang.chuyentien;
 
 
 import java.math.BigDecimal;
