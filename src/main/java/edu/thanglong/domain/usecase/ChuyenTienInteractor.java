@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.thanglong.domain.TaiKhoanRepository;
-import edu.thanglong.domain.entity.GiaoDich;
-import edu.thanglong.domain.entity.TaiKhoan;
+import edu.thanglong.domain.model.GiaoDich;
+import edu.thanglong.domain.model.TaiKhoan;
+import edu.thanglong.infrastructure.repository.TaiKhoanRepository;
 
 import java.math.BigDecimal;
 
@@ -28,6 +28,6 @@ public class ChuyenTienInteractor implements ChuyenTienUseCase {
 
         repo.update(from);
         repo.update(to);
-        repo.saveGiaoDich(new GiaoDich(tuTaiKhoan, denTaiKhoan, soTien, "TRANSFER"));
+        repo.saveGiaoDich(new GiaoDich(tuTaiKhoan, denTaiKhoan, soTien, "CHUYEN_TIEN"));
     }
 }

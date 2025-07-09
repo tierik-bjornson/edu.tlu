@@ -5,9 +5,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import edu.thanglong.domain.TaiKhoanRepository;
-import edu.thanglong.domain.entity.GiaoDich;
-import edu.thanglong.domain.entity.TaiKhoan;
+import edu.thanglong.domain.model.GiaoDich;
+import edu.thanglong.domain.model.TaiKhoan;
+import edu.thanglong.infrastructure.repository.TaiKhoanRepository;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
