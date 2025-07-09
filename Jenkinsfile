@@ -23,7 +23,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo "⚙️ Running Maven clean package..."
+                echo "Running Maven clean package..."
                 sh 'mvn clean package'
             }
         }
@@ -37,14 +37,14 @@ pipeline {
 
         stage('Archive Artifact') {
             steps {
-                echo "🗄️ Archiving built JAR..."
+                echo "🗄Archiving built JAR..."
                 archiveArtifacts artifacts: "target/${JAR_NAME}", fingerprint: true
             }
         }
 
         stage('Stop Previous App') {
             steps {
-                echo "🛑 Stopping previous app if running..."
+                echo "Stopping previous app if running..."
                 sh '''
                     if [ -f ${PID_FILE} ]; then
                         PID=$(cat ${PID_FILE})
