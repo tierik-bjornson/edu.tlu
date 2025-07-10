@@ -7,11 +7,11 @@ import edu.thanglong.domain.repository.nganhang.ruttien.TaiKhoanRepository;
 
 
 @Repository
-public class JdbcTaiKhoanRepository implements TaiKhoanRepository {
+public class JdbcTaiKhoanRutTienRepository implements TaiKhoanRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public JdbcTaiKhoanRepository(JdbcTemplate jdbcTemplate) {
+    public JdbcTaiKhoanRutTienRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 

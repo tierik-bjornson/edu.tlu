@@ -9,7 +9,7 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.4.7</version> <!-- hoặc 3.5.0 nếu bạn đã cập nhật -->
         <relativePath/>
-    </parent>
+    </parent> 
 
     <groupId>edu.thanglong</groupId>
     <artifactId>edu.tlu</artifactId>
