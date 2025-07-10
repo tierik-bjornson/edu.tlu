@@ -54,4 +54,5 @@ public class JdbcTinhLaiRepository implements TinhLaiRepository {
         );
     }
 
+    
 }

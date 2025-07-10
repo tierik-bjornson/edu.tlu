@@ -23,6 +23,5 @@ public class GiaoDich {
         gd.thoiGian = LocalDateTime.now();
         return gd;
     }
-
     // Getters/setters
 }

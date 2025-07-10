@@ -35,6 +35,5 @@ public class TinhLaiUseCase {
         return "Đã tính lãi toàn bộ: " + all.size() + " tài khoản";
     }
 
-    
 
 }

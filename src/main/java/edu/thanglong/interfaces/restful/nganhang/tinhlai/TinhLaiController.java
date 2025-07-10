@@ -30,4 +30,5 @@ public class TinhLaiController {
             return ResponseEntity.status(500).body("Lỗi nội bộ: " + e.getMessage());
         }
     }
+    
 }

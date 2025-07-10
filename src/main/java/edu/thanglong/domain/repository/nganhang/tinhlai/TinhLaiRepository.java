@@ -9,4 +9,5 @@ public interface TinhLaiRepository {
     void saveGiaoDichBatch(List<GiaoDich> danhSachGiaoDich);
     void updateTaiKhoanBatch(List<TaiKhoan> danhSachTaiKhoan);
 
+    
 }
