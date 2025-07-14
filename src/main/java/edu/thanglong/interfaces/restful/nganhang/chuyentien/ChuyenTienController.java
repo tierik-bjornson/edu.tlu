@@ -24,5 +24,12 @@ public class ChuyenTienController {
         TransferResponse response = new TransferResponse(resp);
         return ResponseEntity.ok(response);
     }
+    @GetMapping("/chuyentien")
+    public ResponseEntity<TransferResponse> transfer() {
+        ChuyenTien request = new ChuyenTien(1L, 2L, BigDecimal.valueOf(1000));
+        String resp = chuyenTien.execute(request.getFrom(), request.getTo(), request.getAmount());
+        TransferResponse response = new TransferResponse(resp);
+        return ResponseEntity.ok(response);
+    }
 }
 
