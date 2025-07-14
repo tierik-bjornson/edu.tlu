@@ -21,7 +21,7 @@ public class RutTienController {
 
     @PostMapping("/ruttien")
     public ResponseEntity<String> rutTien(@RequestBody RutTienRequest rutTienRequest) {
-        rutTienUseCase.thucHienRutTien(rutTienRequest.getTaiKhoan(), rutTienRequest.getSoTien());
-        return ResponseEntity.ok("Rút tiền thành công từ tài khoản "+rutTienRequest.getTaiKhoan()+", số tiền " +rutTienRequest.getSoTien());
+        rutTienUseCase.thucHienRutTien(rutTienRequest.getMaTaiKhoan(), rutTienRequest.getSoTien());
+        return ResponseEntity.ok("Rút tiền thành công từ tài khoản "+rutTienRequest.getMaTaiKhoan()+", số tiền " +rutTienRequest.getSoTien());
     }
 }

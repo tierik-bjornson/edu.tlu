@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class GiaoDich {
     private Long maTaiKhoan;
-    private Double soTien;
+    private BigDecimal soTien;
     private String loaiGiaoDich; // "RUT_TIEN"
     // getters/setters
 }

@@ -20,13 +20,25 @@ public class RutTienUseCase {
     }
 
     @Transactional
-    public void thucHienRutTien(Long maTaiKhoan, Double soTien) {
-        taiKhoanRepository.truTien(maTaiKhoan, soTien);
+    public void thucHienRutTien(Long maTaiKhoan, BigDecimal soTien) {
+        try {
+            System.out.println("➡️ Thực hiện rút tiền: tài khoản = " + maTaiKhoan + ", số tiền = " + soTien);
 
-        GiaoDich giaoDich = new GiaoDich();
-        giaoDich.setMaTaiKhoan(maTaiKhoan);
-        giaoDich.setSoTien(soTien);
-        giaoDich.setLoaiGiaoDich("RUT_TIEN");
-        giaoDichRepository.luuGiaoDich(giaoDich);
+            taiKhoanRepository.truTien(maTaiKhoan, soTien);
+
+            GiaoDich giaoDich = new GiaoDich();
+            giaoDich.setMaTaiKhoan(maTaiKhoan);
+            giaoDich.setSoTien(soTien);
+            giaoDich.setLoaiGiaoDich("RUT_TIEN");
+
+            giaoDichRepository.luuGiaoDich(giaoDich);
+
+            System.out.println("✅ Rút tiền thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("❌ Lỗi khi rút tiền: " + e.getMessage(), e);
+        }
+        
     }
+
 }

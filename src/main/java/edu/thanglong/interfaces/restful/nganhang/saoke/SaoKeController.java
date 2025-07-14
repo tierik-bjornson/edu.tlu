@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/nganhang/saoke")
+@RequestMapping("/api/nganhang")
 public class SaoKeController {
 
     private final SaoKeUseCase useCase;
@@ -16,7 +16,7 @@ public class SaoKeController {
         this.useCase = useCase;
     }
 
-    @GetMapping("/{taiKhoan}")
+    @GetMapping("/saoke/{taiKhoan}")
     public List<GiaoDich> laySaoKeThang(
             @PathVariable long taiKhoan,
             @RequestParam int thang,

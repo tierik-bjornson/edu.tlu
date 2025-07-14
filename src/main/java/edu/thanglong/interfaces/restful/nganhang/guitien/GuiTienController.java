@@ -24,11 +24,11 @@ public class GuiTienController {
     }
 
     public static class GuiTienRequest {
-        private String maTaiKhoan;
+        private Long maTaiKhoan;
         private BigDecimal soTien;
         // getters & setters
-        public String getMaTaiKhoan() { return maTaiKhoan; }
-        public void setMaTaiKhoan(String maTaiKhoan) { this.maTaiKhoan = maTaiKhoan; }
+        public Long getMaTaiKhoan() { return maTaiKhoan; }
+        public void setMaTaiKhoan(Long maTaiKhoan) { this.maTaiKhoan = maTaiKhoan; }
         public BigDecimal getSoTien() { return soTien; }
         public void setSoTien(BigDecimal soTien) { this.soTien = soTien; }
     }

@@ -11,6 +11,6 @@ import lombok.Setter;
 @Setter
 @Getter
 public class RutTienRequest {
-    private Long taiKhoan;
-    private Double soTien;
+    private Long maTaiKhoan;
+    private BigDecimal soTien;
 }

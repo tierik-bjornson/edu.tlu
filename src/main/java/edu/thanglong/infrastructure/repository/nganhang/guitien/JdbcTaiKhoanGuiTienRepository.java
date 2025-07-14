@@ -24,7 +24,7 @@ public class JdbcTaiKhoanGuiTienRepository implements TaiKhoanRepository {
         );
 
     @Override
-    public Optional<TaiKhoan> findByMaTaiKhoan(String maTaiKhoan) {
+    public Optional<TaiKhoan> findByMaTaiKhoan(Long maTaiKhoan) {
         String sql = "SELECT ma_tai_khoan, so_du FROM tai_khoan WHERE ma_tai_khoan = ?";
         return jdbc.query(sql, mapper, maTaiKhoan).stream().findFirst();
     }

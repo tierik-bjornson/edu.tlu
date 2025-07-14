@@ -24,7 +24,7 @@ public class GuiTienUseCase {
      * Thực hiện tương đương PROCEDURE gui_tien(tai_khoan, so_tien)
      */
     @Transactional
-    public void execute(String maTaiKhoan, BigDecimal soTien) {
+    public void execute(Long maTaiKhoan, BigDecimal soTien) {
         TaiKhoan tk = taiKhoanRepo.findByMaTaiKhoan(maTaiKhoan)
             .orElseThrow(() -> new IllegalArgumentException("Tài khoản không tồn tại"));
         // UPDATE tai_khoan SET so_du = so_du + so_tien

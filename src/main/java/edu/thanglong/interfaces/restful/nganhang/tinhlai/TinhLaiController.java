@@ -23,10 +23,9 @@ public class TinhLaiController {
                 return ResponseEntity.badRequest().body("Thiếu tỷ lệ lãi (tyLe)");
             }
             String result = useCase.tinhLai(tyLe);
-//            String result = useCase.tinhLaiTest(tyLe);
             return ResponseEntity.ok(result);
         } catch (Exception e) {
-            e.printStackTrace(); // in lỗi ra console
+            e.printStackTrace(); 
             return ResponseEntity.status(500).body("Lỗi nội bộ: " + e.getMessage());
         }
     }
