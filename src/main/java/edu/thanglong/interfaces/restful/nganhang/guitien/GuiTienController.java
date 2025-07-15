@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/nganhang")
@@ -18,9 +20,13 @@ public class GuiTienController {
     }
 
     @PostMapping("/guitien")
-    public ResponseEntity<Void> guiTien(@RequestBody GuiTienRequest rq) {
+    public ResponseEntity<HashMap<String,String>> guiTien(@RequestBody GuiTienRequest rq) {
         useCase.execute(rq.getMaTaiKhoan(), rq.getSoTien());
-        return ResponseEntity.ok().build();
+        HashMap<String, String> response = new HashMap<>();
+        response.put("message", "Gửi tiền thành công"); 
+        response.put("maTaiKhoan", rq.getMaTaiKhoan());
+        response.put("soTien", rq.getSoTien().toString());
+        return ResponseEntity.ok().body(response);            
     }
 
     public static class GuiTienRequest {
